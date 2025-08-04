@@ -14,21 +14,33 @@ function solution(prices) {
 }
 
 // 두번째 풀이
+// 테스트 1 〉	통과 (8.37ms, 44.5MB)
+// 테스트 2 〉	통과 (4.88ms, 41.7MB)
+// 테스트 3 〉	통과 (29.71ms, 45.2MB)
+// 테스트 4 〉	통과 (4.87ms, 41.9MB)
+// 테스트 5 〉	통과 (25.68ms, 41.9MB)
 function solution2(prices) {
   const n = prices.length;
-  const answer = new Array(n).fill(0);
+  const answer = [];
 
   for (let i = 0; i < n; i++) {
+    let count = 0;
     for (let j = i + 1; j < n; j++) {
-      answer[i]++;
+      count++;
       if (prices[i] > prices[j]) break;
     }
+    answer.push(count);
   }
 
   return answer;
 }
 
 // 마지막 풀이 -> 이건 프로그래머스 해설보고 이해하려했으나 아직도 잘 모르겠음
+// 테스트 1 〉	통과 (19.77ms, 43.3MB)
+// 테스트 2 〉	통과 (26.94ms, 41.7MB)
+// 테스트 3 〉	통과 (27.57ms, 43.9MB)
+// 테스트 4 〉	통과 (3.98ms, 42.2MB)
+// 테스트 5 〉	통과 (3.63ms, 42.3MB)
 function solution3(prices) {
   const answer = new Array(prices.length).fill(0);
   const stack = [];
