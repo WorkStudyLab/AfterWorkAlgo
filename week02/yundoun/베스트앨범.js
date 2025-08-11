@@ -48,7 +48,7 @@ function solution(genres, plays) {
     for (let [genre, value] of hash){
         value.song.sort((a,b)=>{
             if (b.plays !== a.plays) return b.plays - a.plays
-            return a.plays - b.plays;
+            return a.id - b.id;
         })
     }
     
