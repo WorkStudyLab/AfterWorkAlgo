@@ -1,4 +1,4 @@
-## 주제: 해시 / 정렬
+## 주제: 완전탐색 / 브루트포스
 
 
 ### 1. 모의고사 (LV1)
@@ -7,7 +7,7 @@
 ### 2. 소수 찾기 (LV2) 
 - 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42839
 
-### 3. 카펫 (LV3) 
+### 3. 카펫 (LV2) 
 - 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42842
 
 ### 4. 체육복 (LV1) 
