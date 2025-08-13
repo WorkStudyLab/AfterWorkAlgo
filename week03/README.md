@@ -10,11 +10,11 @@
 ### 3. 카펫 (LV2) 
 - 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42842
 
-### 4. 체육복 (LV1) 
-- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/42862
+### 4. 전력망을 둘로 나누기 (LV2)
+- 문제 링크: [https://school.programmers.co.kr/learn/courses/30/lessons/42862](https://school.programmers.co.kr/learn/courses/30/lessons/86971)
 
-### 5. 
-- 문제 링크: 
+### 5. 모음사전 (LV2)
+- 문제 링크: https://school.programmers.co.kr/learn/courses/30/lessons/84512
 
 ---
 
