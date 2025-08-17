@@ -45,7 +45,6 @@ class SongList {
 
 function solution(genres, plays) {
   const mapObj = new Map();
-  var answer = [];
   for (let i = 0; i < genres.length; i++) {
     const songCategory = genres[i];
     const playcount = plays[i];
@@ -63,9 +62,35 @@ function solution(genres, plays) {
   }
 
   // map 객체 => 배열로 변환
+  //   [
+  //   SongList {
+  //     category: 'classic',
+  //     allCount: 1450,
+  //     songs: [ [Song], [Song], [Song] ]
+  //   },
+  //   SongList {
+  //     category: 'pop',
+  //     allCount: 3100,
+  //     songs: [ [Song], [Song] ]
+  //   }
+  // ]
   const arr = Array.from(mapObj.values());
+  console.log(arr);
   const sortArr = arr.sort((a, b) => b.allCount - a.allCount);
-  console.log(sortArr);
+  //   [
+  //   SongList {
+  //     category: 'pop',
+  //     allCount: 3100,
+  //     songs: [ [Song], [Song] ]
+  //   },
+  //   SongList {
+  //     category: 'classic',
+  //     allCount: 1450,
+  //     songs: [ [Song], [Song], [Song] ]
+  //   }
+  // ]
+  console.log(sortArr.map((item) => item.getBest()));
+  // [ [ 4, 1 ], [ 3, 0 ] ]
   return sortArr
     .map((item) => item.getBest())
     .reduce((prev, cur) => [...prev, ...cur]);
