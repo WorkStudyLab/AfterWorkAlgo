@@ -14,14 +14,14 @@ function solution(word) {
       if (w === word) {
         answer = count;
         found = true;
-        return;
+        return; // 결과 찾음 종료
       }
     }
-    if (found) return;
-    if (w.length === LIMIT) return;
+    if (found) return; // 결과 찾음 종료
+    if (w.length === LIMIT) return; // 제한 길이에 도달함 종료
 
     for (let i = 0; i < V.length; i++) {
-      if (found) return;
+      if (found) return; // 결과 찾음 종료
       w += V[i];
       dfs();
       w = w.slice(0, -1);
