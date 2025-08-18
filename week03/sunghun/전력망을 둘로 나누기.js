@@ -31,3 +31,29 @@ function solution(word) {
   dfs();
   return answer;
 }
+// └─ A (1)                   ← "A"
+//    └─ A (2)                ← "AA"
+//       └─ A (3)             ← "AAA"
+//          └─ A (4)          ← "AAAA"
+//             ├─ A (5)       ← "AAAAA"
+//             ├─ E (6)       ← "AAAAE"
+//             ├─ I (7)       ← "AAAAI"
+//             ├─ O (8)       ← "AAAAO"
+//             └─ U (9)       ← "AAAAU"
+//          └─ E (10)         ← "AAAE"
+//          └─ I (11)         ← "AAAI" ★ 여기서 찾음
+
+// AAA (3)
+//  ├─ AAAA (4)
+//  │   ├─ AAAAA (5)
+//  │   ├─ AAAAE (6)
+//  │   ├─ AAAAI (7)
+//  │   ├─ AAAAO (8)
+//  │   └─ AAAAU (9)
+//  ├─ AAAE (10)
+//  │   ├─ AAAEA (11)
+//  │   ├─ AAAEE (12)
+//  │   ├─ AAAEI (13)
+//  │   ├─ AAAEO (14)
+//  │   └─ AAAEU (15)
+//  ├─ AAAI (16)
