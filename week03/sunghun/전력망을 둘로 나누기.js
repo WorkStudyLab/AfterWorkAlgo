@@ -10,7 +10,7 @@ function solution(n, wires) {
 
   function dfs(u) {
     visited[u] = true;
-    let size = 1; // u 자신
+    let size = 1; // 자기 자신만 있을때 크기는 1
 
     for (const v of graph[u]) {
       if (!visited[v]) {
@@ -20,7 +20,7 @@ function solution(n, wires) {
         const diff = Math.abs(n - 2 * childSize);
         if (diff < answer) answer = diff;
 
-        size += childSize;
+        size += childSize; // 자식 노드 크기 더하기 이어지는 구간에는 계속 +1됨
       }
     }
     return size;
