@@ -19,6 +19,7 @@ function solutionDFS(begin, target, words) {
 
   let answer = Infinity;
   visited[0] = true;
+  dfs(0, 0);
 
   function dfs(curr, depth) {
     if (depth >= answer) return;
@@ -36,8 +37,6 @@ function solutionDFS(begin, target, words) {
       }
     }
   }
-
-  dfs(0, 0);
 
   return Number.isFinite(answer) ? answer : 0;
 }

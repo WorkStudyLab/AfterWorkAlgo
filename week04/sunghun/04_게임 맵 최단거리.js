@@ -4,6 +4,7 @@ function solutionDFS(maps) {
   const m = maps[0].length;
   const visited = Array.from({ length: n }, () => Array(m).fill(false));
   let answer = Infinity;
+  dfs(0, 0, 1);
 
   function dfs(x, y, depth) {
     if (x < 0 || y < 0 || x >= n || y >= m) return; // 격자 벗어남
@@ -24,8 +25,6 @@ function solutionDFS(maps) {
     // for (const [dx, dy] of dirs) dfs(x + dx, y + dy, depth + 1);
     visited[x][y] = false;
   }
-
-  dfs(0, 0, 1);
   return Number.isFinite(answer) ? answer : -1;
 }
 
