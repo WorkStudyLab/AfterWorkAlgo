@@ -2,7 +2,7 @@
 function solutionDFS(maps) {
   const n = maps.length;
   const m = maps[0].length;
-  const visited = Array.from({ length: n }, () => Array(m).fill(false));
+  const visited = Array.from(new Array(n), () => new Array(m).fill(false));
   let answer = Infinity;
   dfs(0, 0, 1);
 
@@ -31,7 +31,7 @@ function solutionDFS(maps) {
 function solutionBFS(maps) {
   const n = maps.length;
   const m = maps[0].length;
-  const dist = Array.from({ length: n }, () => Array(m).fill(0));
+  const dist = Array.from(new Array(n), () => new Array(m).fill(0));
   const dirs = [
     [1, 0],
     [-1, 0],
@@ -62,7 +62,7 @@ function solutionBFS(maps) {
 function solutionBFS_headTail(maps) {
   const n = maps.length;
   const m = maps[0].length;
-  const dist = Array.from({ length: n }, () => Array(m).fill(0));
+  const dist = Array.from(new Array(n), () => new Array(m).fill(0));
   const dirs = [
     [1, 0],
     [-1, 0],
