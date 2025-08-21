@@ -58,3 +58,44 @@ function solutionBFS(maps) {
   }
   return -1;
 }
+
+function solutionBFS_headTail(maps) {
+  const n = maps.length;
+  const m = maps[0].length;
+  const dist = Array.from({ length: n }, () => Array(m).fill(0));
+  const dirs = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
+
+  // shift 배제한 head tail 로직
+  const qx = new Array(n * m).fill(0);
+  const qy = new Array(n * m).fill(0);
+  let head = 0;
+  let tail = 1;
+  dist[0][0] = 1;
+
+  while (head < tail) {
+    const x = qx[head];
+    const y = qy[head];
+    head++;
+
+    if (x === n - 1 && y === m - 1) return dist[x][y];
+
+    for (const [dx, dy] of dirs) {
+      const nx = x + dx,
+        ny = y + dy;
+      if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue; // 범위 밖
+      if (maps[nx][ny] === 0) continue; // 벽
+      if (dist[nx][ny] !== 0) continue; // 이미 방문
+
+      dist[nx][ny] = dist[x][y] + 1;
+      qx[tail] = nx;
+      qy[tail] = ny;
+      tail++;
+    }
+  }
+  return -1;
+}
