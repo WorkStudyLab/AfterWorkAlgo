@@ -28,3 +28,34 @@ function solutionDFS(maps) {
   dfs(0, 0, 1);
   return Number.isFinite(answer) ? answer : -1;
 }
+
+function solutionBFS(maps) {
+  const n = maps.length;
+  const m = maps[0].length;
+  const dist = Array.from({ length: n }, () => Array(m).fill(0));
+  const dirs = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
+
+  const queue = [[0, 0]];
+  dist[0][0] = 1;
+
+  while (queue.length) {
+    const [x, y] = queue.shift();
+    if (x === n - 1 && y === m - 1) return dist[x][y];
+
+    for (const [dx, dy] of dirs) {
+      const [nx, ny] = [x + dx, y + dy];
+      if (nx < 0 || ny < 0 || nx >= n || ny >= m) continue; // 범위 체크
+      if (maps[nx][ny] === 0) continue; // 벽
+      if (dist[nx][ny] !== 0) continue; // 이미 방문
+
+      dist[nx][ny] = dist[x][y] + 1;
+      queue.push([nx, ny]);
+    }
+  }
+  return -1;
+}
