@@ -1,6 +1,6 @@
 // 2분탐색
 function solution(n, times) {
-  // 정렬 시 하단 countProcessed 에서 조금 더 빠르게 탈출가능
+  // 정렬 시 하단 isSuccess 에서 조금 더 빠르게 탈출가능
   const sortTimes = times.sort((a, b) => a - b);
   const length = times.length;
   let lo = 1;
