@@ -1,4 +1,4 @@
-// 2분탐색
+// 이분 탐색
 function solution(n, times) {
   // 정렬 시 하단 isSuccess 에서 조금 더 빠르게 탈출가능
   const sortTimes = times.sort((a, b) => a - b);
@@ -8,10 +8,10 @@ function solution(n, times) {
   let hi = times[length - 1] * n;
   let answer = hi;
 
-  const isSuccess = (mid) => {
+  const isSuccess = (time) => {
     let count = 0;
     for (let i = 0; i < length; i++) {
-      count += Math.floor(mid / sortTimes[i]);
+      count += Math.floor(time / sortTimes[i]);
       if (count >= n) return true;
     }
     return false;
