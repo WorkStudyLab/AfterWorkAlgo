@@ -6,6 +6,9 @@
  * - 구명보트 탑승 가능 무게 : 40~240
  *   + 항상 최대 몸무게보다 크다.
  * - 인원 : 1~50,000
+ *
+ * [풀이]
+ *
  */
 class CustomMap extends Map {
   constructor(sortArr) {
@@ -34,11 +37,22 @@ class CustomMap extends Map {
 }
 
 function solution(people, limit) {
+  // 몸무게 내림차순으로 정렬
+  // => [80,70,50,50]
   const sortArr = people.sort((a, b) => b - a);
+
+  // 맵객체 생성 & 배열 저장
+  // => CustomMap(0) [Map] { arr: [ 80, 70, 50, 50 ] }
   const map = new CustomMap(sortArr);
   let answer = 0;
 
-  // 맵 객체 안에 저장
+  // 맵에 몸무게별 카운트 저장
+  // CustomMap(3) [Map] {
+  //   80 => 1,
+  //   70 => 1,
+  //   50 => 2,
+  //   arr: [ 80, 70, 50, 50 ]
+  // }
   for (let i = 0; i < sortArr.length; i++) {
     const item = people[i];
 
@@ -51,24 +65,32 @@ function solution(people, limit) {
       map.set(item, 1);
     }
   }
+  console.log(map);
 
+  // 모든 인원에 대한 탐색 시작
   for (let i = 0; i < sortArr.length; i++) {
     let weight = 0;
     const targetItem = sortArr[i];
 
+    // 맵 객체에 해당 몸무게 카운트가 0이라면
     // 이미 해당 몸무게는 모두 탈출한 케이스
     if (!map.has(targetItem)) continue;
 
+    // 0이 아니라면 해당 사람은 일단 탈출
     map.subCount(targetItem);
+    // 무게에 해당 인원의 몸무게를 더한다.
     weight += targetItem;
 
+    // 같이 탈수있는 사람의 최대 몸무게를 찾는다
+    // 제한 무게 - 방금 탑승한 사람 무게
     const maxWeight = limit - targetItem;
+    // 최대 몸무게보다 작은 인원 목록을 구한다.
     const miniNumList = map.getMiniNumber(maxWeight);
 
+    // 인원 목록에서 가장 무거운 인원 선택
     const pushItem = miniNumList[0] || -1;
+    // 해당 인원의 카우느가 0이 아니라면 보드에 탑승
     if (map.has(pushItem)) map.subCount(pushItem);
-
-    // 보트 탑승 : 탈수있는 가장 무거운 사람
 
     answer++;
   }
