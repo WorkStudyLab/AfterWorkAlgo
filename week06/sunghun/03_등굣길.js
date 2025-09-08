@@ -1,5 +1,5 @@
 function solution(m, n, puddles) {
-  const MOD = 1_000_000_007;
+  const MOD = 1000000007;
   const blocked = Array.from({ length: n + 1 }, () =>
     new Array(m + 1).fill(false)
   );
