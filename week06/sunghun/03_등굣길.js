@@ -16,7 +16,7 @@ function solution(m, n, puddles) {
       if (blocked[y][x]) {
         dp[y][x] = 0; // 물웅덩이
       } else {
-        dp[y][x] = (dp[y - 1][x] + dp[y][x - 1]) % MOD;
+        dp[y][x] = (dp[y - 1][x] + dp[y][x - 1]) % MOD; // 최종적으로 MOD를 넘어가면 나머지 연산
       }
     }
   }
